@@ -1,0 +1,29 @@
+info:
+  name: Update
+  type: http
+  seq: 3
+  tags:
+    - City
+http:
+  method: PUT
+  url: '{{baseUrl}}/api/cities/:id'
+  params:
+    -
+      name: id
+      value: '1'
+      type: path
+  headers:
+    -
+      name: Accept
+      value: application/json
+    -
+      name: Content-Type
+      value: application/json
+  auth:
+    type: bearer
+    token: '{{authToken}}'
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

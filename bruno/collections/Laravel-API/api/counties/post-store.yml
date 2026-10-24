@@ -1,0 +1,24 @@
+info:
+  name: Store
+  type: http
+  seq: 6
+  tags:
+    - County
+http:
+  method: POST
+  url: '{{baseUrl}}/api/counties'
+  headers:
+    -
+      name: Accept
+      value: application/json
+    -
+      name: Content-Type
+      value: application/json
+  auth:
+    type: bearer
+    token: '{{authToken}}'
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

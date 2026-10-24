@@ -1,0 +1,12 @@
+name: Local
+variables:
+  -
+    name: baseUrl
+    value: 'http://localhost:8000'
+    enabled: true
+    secret: false
+  -
+    name: authToken
+    value: ''
+    enabled: true
+    secret: true

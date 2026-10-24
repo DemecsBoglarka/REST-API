@@ -1,0 +1,12 @@
+name: Staging
+variables:
+  -
+    name: baseUrl
+    value: 'https://staging.example.com'
+    enabled: true
+    secret: false
+  -
+    name: authToken
+    value: ''
+    enabled: true
+    secret: true

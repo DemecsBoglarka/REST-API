@@ -1,0 +1,26 @@
+info:
+  name: Destroy
+  type: http
+  seq: 4
+  tags:
+    - City
+http:
+  method: DELETE
+  url: '{{baseUrl}}/api/cities/:id'
+  params:
+    -
+      name: id
+      value: '1'
+      type: path
+  headers:
+    -
+      name: Accept
+      value: application/json
+  auth:
+    type: bearer
+    token: '{{authToken}}'
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

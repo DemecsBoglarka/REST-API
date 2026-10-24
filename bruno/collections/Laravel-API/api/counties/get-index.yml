@@ -1,0 +1,18 @@
+info:
+  name: Index
+  type: http
+  seq: 5
+  tags:
+    - County
+http:
+  method: GET
+  url: '{{baseUrl}}/api/counties'
+  headers:
+    -
+      name: Accept
+      value: application/json
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
