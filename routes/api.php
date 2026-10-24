@@ -14,7 +14,10 @@ Route::get('/user', function (Request $request) {
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/counties', [CountyController::class, 'index']);
+Route::get('/county', [CountyController::class, 'search']);
 Route::get('/cities', [CityController::class, 'index']);
+Route::get('/city', [CityController::class, 'search']);
+Route::get('/cities_filtered', [CityController::class, 'filter']);
 
 Route::middleware('auth:sanctum')->group(function () {
 

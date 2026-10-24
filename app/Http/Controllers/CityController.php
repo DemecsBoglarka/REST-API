@@ -48,4 +48,20 @@ class CityController extends Controller
             'message' => 'City deleted',
         ]);
     }
+
+    public function search(Request $request) {
+        $cities = City::where('name', 'LIKE', '%' . $request->name . '%')->get();
+        return response()->json([
+            'cities' => $cities,
+        ]);
+    }
+
+    public function filter(Request $request) {
+        $cities = City::whereHas('county', function ($query) use ($request) {
+            $query->where('name', $request->name);
+        })->get();
+        return response()->json([
+            'cities' => $cities,
+        ]);
+    }
 }

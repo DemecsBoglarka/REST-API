@@ -1,3 +1,28 @@
+## API Végpontok Dokumentációja
+
+### Publikus végpontok (hitelesítés nem szükséges)
+
+| Metódus | Végpont | Leírás | Paraméterek | Megjegyzés |
+| :--- | :--- | :--- | :--- | :--- |
+| `POST` | `/api/login` | Felhasználó hitelesítése (bejelentkezés). | `email`, `password` | Visszaadja a sikeres bejelentkezéshez szükséges Bearer Tokent. |
+| `GET` | `/api/counties` | Összes megye listázása. | Nincs | Alapértelmezett, teljes lista. |
+| `GET` | `/api/county` | Megyék keresése. | `name` | Teljes név vagy részlet alapján. |
+| `GET` | `/api/cities` | Összes város listázása. | Nincs | Alapértelmezett, teljes lista. |
+| `GET` | `/api/city` | Városok keresése. | `name` | Teljes név vagy részlet alapján. |
+| `GET` | `/api/cities_filtered` | Városok szűrt listázása. | `name` | A pontos megye név alapján szűr a megye városaira. |
+
+### Védett végpontok (hitelesítés szükséges)
+
+| Metódus | Végpont | Leírás | Paraméterek | Megjegyzés |
+| :--- | :--- | :--- | :--- | :--- |
+| `POST` | `/api/counties` | Új megye létrehozása. | `name` | HTTP Headerben kötelező a token. |
+| `PUT` | `/api/counties/{id}` | Létező megye módosítása. | `name` | URL-ben az `id`. HTTP Headerben kötelező a token. |
+| `DELETE`| `/api/counties/{id}` | Megye törlése. | Nincs | URL-ben az `id`. HTTP Headerben kötelező a token. |
+| `POST` | `/api/cities` | Új város létrehozása. | `name`, `county_id` | HTTP Headerben kötelező a token. |
+| `PUT` | `/api/cities/{id}` | Létező város módosítása. | `name` | URL-ben az `id`. HTTP Headerben kötelező a token. |
+| `DELETE`| `/api/cities/{id}` | Város törlése. | Nincs | URL-ben az `id`. HTTP Headerben kötelező a token. |
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">

@@ -47,4 +47,11 @@ class CountyController extends Controller
             'message' => 'County deleted',
         ]);
     }
+    
+    public function search(Request $request) {
+        $counties = County::where('name', 'LIKE', '%' . $request->name . '%')->get();
+        return response()->json([
+            'counties' => $counties,
+        ]);
+    }
 }
